@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./Login.css";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -20,32 +21,42 @@ function Login({ onLogin }) {
 
       onLogin();
     } catch (err) {
-      console.error(err);
-      setError("Identifiants incorrects ou serveur indisponible");
+      setError("Identifiants incorrects");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+    <div className="login-page">
+      <div className="login-card">
+        <h2 className="logo">Cold Chain</h2>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+        <h3>Login</h3>
 
-      <input
-        placeholder="Username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-      />
+        {error && <p className="error">{error}</p>}
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
+        <form onSubmit={handleSubmit}>
+          <label>Email</label>
+          <input
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
 
-      <button type="submit">Login</button>
-    </form>
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+
+          <button type="submit">Sign in</button>
+        </form>
+
+        <p className="forgot">Forgot password?</p>
+      </div>
+    </div>
   );
 }
 

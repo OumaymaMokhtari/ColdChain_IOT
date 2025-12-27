@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import IncidentBadge from "./components/IncidentBadge";
+import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Incidents from "./pages/Incidents";
 import Login from "./pages/Login";
@@ -11,47 +11,31 @@ function App() {
     !!localStorage.getItem("access")
   );
 
-  // Si non authentifié → login
+  // 🔒 Si non authentifié → Login
   if (!isAuth) {
     return <Login onLogin={() => setIsAuth(true)} />;
   }
 
   return (
     <BrowserRouter>
-      {/* HEADER AVEC NOTIFICATION */}
-      <header style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "10px",
-        background: "#eee"
-      }}>
-        <h2>Cold Chain</h2>
-        <IncidentBadge />
-      </header>
+      {/* SIDEBAR */}
+      <Sidebar onLogout={() => setIsAuth(false)} />
 
-      {/* NAVIGATION */}
-      <nav style={{ padding: "10px", background: "#ddd" }}>
-        <Link to="/" style={{ marginRight: "15px" }}>Dashboard</Link>
-        <Link to="/incidents">Incidents</Link>
-
-        <button
-          style={{ marginLeft: "20px" }}
-          onClick={() => {
-            localStorage.clear();
-            setIsAuth(false);
-          }}
-        >
-          Logout
-        </button>
-      </nav>
-
-      {/* ROUTES */}
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/incidents" element={<Incidents />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      {/* CONTENU PRINCIPAL */}
+      <main
+        style={{
+          marginLeft: "240px",   // largeur de la sidebar
+          padding: "30px",
+          minHeight: "100vh",
+          backgroundColor: "#f5f6fa"
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/incidents" element={<Incidents />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

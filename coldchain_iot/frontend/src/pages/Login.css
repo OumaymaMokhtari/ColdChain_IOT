@@ -1,0 +1,78 @@
+/* PAGE */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0066cc, #0a1a3c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* CARD */
+  .login-card {
+    width: 360px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  
+  /* LOGO */
+  .logo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* TITRE */
+  .login-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* FORM */
+  .login-card label {
+    font-size: 13px;
+    opacity: 0.9;
+  }
+  
+  .login-card input {
+    width: 100%;
+    padding: 10px 14px;
+    margin: 8px 0 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+  }
+  
+  /* BUTTON */
+  .login-card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #0a1a3c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .login-card button:hover {
+    background: #08152f;
+  }
+  
+  /* TEXT */
+  .forgot {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: #ffb4b4;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
