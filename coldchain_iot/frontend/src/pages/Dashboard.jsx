@@ -7,7 +7,6 @@ import HumidityChart from "../components/HumidityChart";
 function Dashboard() {
   const [measurements, setMeasurements] = useState([]);
 
-  // 🔹 1️⃣ Récupération des données + polling
   useEffect(() => {
     const fetchData = () => {
       api.get("mesures/all/")
@@ -21,7 +20,6 @@ function Dashboard() {
     return () => clearInterval(interval);
   }, []);
 
-  // 🔹 2️⃣ Debug (OPTIONNEL mais autorisé)
   useEffect(() => {
     console.log("MEASUREMENTS:", measurements);
   }, [measurements]);

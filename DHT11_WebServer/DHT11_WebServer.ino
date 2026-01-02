@@ -20,7 +20,7 @@ const char* ssid = "TP-LINK_54A2";
 const char* password = "54174726";
 
 // Django API
-const char* serverName = "http://192.168.1.102:8000/api/mesures/";
+const char* serverName = "http://192.168.1.104:8000/api/mesures/";
 
 #define DHTPIN 5
 #define DHTTYPE DHT11
@@ -80,7 +80,7 @@ void sendToAPI(float temp, float hum) {
 
   http.begin(client, serverName);
   http.addHeader("Content-Type", "application/json");
-  http.addHeader("X-API-KEY", "ESP_SECRET_123");
+  http.addHeader("X-API-KEY", "SUPER_SECRET_KEY");
   http.setTimeout(5000);
 
   String json = "{";

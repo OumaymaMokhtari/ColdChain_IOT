@@ -10,6 +10,7 @@ class Incident(models.Model):
         ("IN_PROGRESS", "En cours"),
         ("ESCALATED", "Escaladé"),
         ("RESOLVED", "Résolu"),
+        ("ARCHIVED", "Archivé"), 
     ]
 
     sensor = models.ForeignKey(
@@ -40,8 +41,15 @@ class Incident(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     resolved_at = models.DateTimeField(null=True, blank=True)
 
+    archived_at = models.DateTimeField(  
+        null=True,
+        blank=True
+    )
+
     def __str__(self):
         return f"Incident #{self.id} - {self.sensor.name} - {self.status}"
+
+
 class IncidentHistory(models.Model):
 
     ACTION_CHOICES = [
@@ -51,6 +59,8 @@ class IncidentHistory(models.Model):
         ("REFUSED", "Intervention refusée"),
         ("ESCALATED", "Incident escaladé"),
         ("RESOLVED", "Incident résolu"),
+        ("ARCHIVED", "Incident archivé"),  
+        ("COMMENT", "Commentaire ajouté"), 
     ]
 
     incident = models.ForeignKey(

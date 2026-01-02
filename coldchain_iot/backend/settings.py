@@ -33,8 +33,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '192.168.1.102',
+    '192.168.1.104',
 ]
+
 
 
 
@@ -180,7 +181,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
-ESP_API_KEY = "ESP_SECRET_123"
+ESP_API_KEY = os.getenv("ESP_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"

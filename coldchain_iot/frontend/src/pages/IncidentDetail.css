@@ -1,0 +1,56 @@
+.incident-detail {
+    max-width: 1000px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .status.active {
+    color: #b91c1c;
+    background: #fee2e2;
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+  
+  .status.resolved {
+    color: #166534;
+    background: #dcfce7;
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+  
+  .modern-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .modern-table th,
+  .modern-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .empty {
+    text-align: center;
+    color: #999;
+  }
+  
+  .back-btn {
+    background: #4c3fe1;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
